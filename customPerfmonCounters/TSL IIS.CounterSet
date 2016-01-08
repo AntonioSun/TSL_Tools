@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CounterSet Name="TSL IIS" CounterSetType="TSL IIS" LocId="CounterSet_TSL IIS">
+  <CounterCategories>
+    <CounterCategory Name="Active Server Pages">
+      <Counters>
+        <Counter Name="Errors/Sec" />
+        <Counter Name="Request Bytes In Total" RangeGroup="ASP Request Bytes" />
+        <Counter Name="Request Bytes Out Total" RangeGroup="ASP Request Bytes" />
+        <Counter Name="Request Execution Time" />
+        <Counter Name="Request Wait Time" />
+        <Counter Name="Requests Executing" />
+        <Counter Name="Requests Queued" />
+        <Counter Name="Requests Succeeded" HigherIsBetter="true" RangeGroup="ASP Requests" />
+        <Counter Name="Requests Total" HigherIsBetter="true" RangeGroup="ASP Requests" />
+        <Counter Name="Requests/Sec" HigherIsBetter="true" />
+        <Counter Name="Sessions Current" />
+        <Counter Name="Transactions/Sec" HigherIsBetter="true" />
+      </Counters>
+    </CounterCategory>
+    <CounterCategory Name="Web Service">
+      <Counters>
+        <Counter Name="Bytes Received/sec"  HigherIsBetter="true" RangeGroup="IIS Bytes" />
+        <Counter Name="Bytes Sent/sec"  HigherIsBetter="true" RangeGroup="IIS Bytes" />
+        <Counter Name="Bytes Total/sec"  HigherIsBetter="true" RangeGroup="IIS Bytes" />
+        <Counter Name="Connection Attempts/sec"  HigherIsBetter="true"/>
+        <Counter Name="Current Connections"  HigherIsBetter="true"/>
+        <Counter Name="Get Requests/sec" HigherIsBetter="true" RangeGroup="IIS Requests" />
+        <Counter Name="ISAPI Extension Requests/sec" HigherIsBetter="true"/>
+        <Counter Name="Post Requests/sec" HigherIsBetter="true" RangeGroup="IIS Requests" />
+        <Counter Name="Total Method Requests/sec" HigherIsBetter="true" RangeGroup="IIS Requests" />
+      </Counters>
+      <Instances>
+        <Instance Name="_Total" />
+        <Instance Name="dllhost" />
+      </Instances>
+    </CounterCategory>
+  </CounterCategories>
+  <DefaultCountersForAutomaticGraphs>
+    <DefaultCounter CategoryName="Web Service" CounterName="Bytes Total/sec" InstanceName="_Total"/>
+    <DefaultCounter CategoryName="Web Service" CounterName="Total Method Requests/sec" InstanceName="_Total"/>
+  </DefaultCountersForAutomaticGraphs>
+</CounterSet>

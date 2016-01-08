@@ -1,0 +1,391 @@
+﻿<CodeSnippets
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <!-- 
+        TSL_Snip_ContextAddOrUpdate
+        TSL_Snip_HandleContextParams
+        TSL_Snip_FailTheIteration
+        TSL_Snip_ForEach_HTMLTagInnerText
+        TSL_Snip_ForEach_StringSplit
+        TSL_Snip_FormPostHttpBody
+        TSL_Snip_LoadTestUserContextExistsInUnitTest
+        TSL_Snip_LoadTestUserContextExistsInWebtest
+        SQLConnectionWithDataReader
+  -->
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_ContextAddOrUpdate
+      </Shortcut>
+      <Title>
+        AddOrUpdateContextParam
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Allows updating or creating a context param based on whether it already exists
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ContextName</ID>
+          <Default>ContextName</Default>
+        </Literal>
+        <Literal>
+          <ID>Value</ID>
+          <Default>DefaultValue</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+            if(e.WebTest.Context.ContainsKey($ContextName$))
+                e.WebTest.Context[$ContextName$] = $Value$;
+            else
+                e.WebTest.Context.Add($ContextName$, $Value$);
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_HandleContextParams
+      </Shortcut>
+      <Title>
+        HandleContextParams
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Checks the public properties of the plugin to see if context params are used. If so, it replaces the param with the appropriate value.
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ContextName</ID>
+          <Default>"MyString"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+                    // NOTE: This routine is what handles context params passed in as values in the plugin
+                    string clean$ContextName$ = "";
+                    if ($ContextName$.Contains("{{"))
+                    {
+                        $ContextName$ = $ContextName$.Replace("{{", "");
+                        $ContextName$ = $ContextName$.Replace("}}", "");
+                        clean$ContextName$ = e.WebTest.Context[$ContextName$].ToString();
+                    }
+                    else
+                        clean$ContextName$ = $ContextName$;
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_FailTheIteration
+      </Shortcut>
+      <Title>
+        FailTheIteration
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Adds the code to output the problem and then fail the current iteration of the test.
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Message</ID>
+          <Default>ReasonForFailure</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+        {
+            e.WebTest.AddCommentToResult("$Message$");
+            e.WebTest.Outcome = Outcome.Fail;
+            e.WebTest.Stop();
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_ForEach_HTMLTagInnerText
+      </Shortcut>
+      <Title>
+        ForEach_HTMLTagInnerText
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Adds the necessary code to allow iterating through a collection of inner text from HTML tags
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>TagName</ID>
+          <Default>"select"</Default>
+        </Literal>
+        <Literal>
+          <ID>MatchAttributeName</ID>
+          <Default>"Name"</Default>
+        </Literal>
+        <Literal>
+          <ID>MatchAttributeValue</ID>
+          <Default>"Value"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+          HtmlTagInnerTextParser tagParser = new HtmlTagInnerTextParser(e.Response.BodyString);
+          foreach (HtmlTagInnerText tInner in tagParser.GetInnerTextForHtmlTags($TagName$, $MatchAttributeName$, $MatchAttributeValue$, true, false, true))
+          {
+
+          }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_ForEach_StringSplit
+      </Shortcut>
+      <Title>
+        ForEachStringSplit
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Creates an empty foreach loop based on a String.Split call
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>StringDelimiter</ID>
+          <Default>";"</Default>
+        </Literal>
+        <Literal>
+          <ID>MainString</ID>
+          <Default>mainString</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+            foreach (string str in $MainString$.Split(new string[] { $StringDelimiter$ }, StringSplitOptions.RemoveEmptyEntries))
+            {
+            
+            }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_FormPostHttpBody
+      </Shortcut>
+      <Title>
+        FormPostHttpBody
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Adds the code to manipulate a requests Form Post Parameters. Includes a few things you can do.
+      </Description>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+        FormPostHttpBody fphb = new FormPostHttpBody();
+        fphb = (FormPostHttpBody)e.Request.Body;
+        {
+          // --- Add A Value
+          //fphb.FormPostParameters.Add(sTemp, "on");
+                  
+          // --- Walk all values
+          //foreach (FormPostParameter fpp in fphb.FormPostParameters)
+          //{
+          //    // Do some action
+          //}                  
+
+          // --- Remove Specific Params
+          // We need to clear all params which have our SubstringToSearchFor
+          //for (int x = fphb.FormPostParameters.Count - 1; x < 0; x--)
+          //{
+          //    if (fphb.FormPostParameters[x].Name.Contains(str))
+          //        fphb.FormPostParameters.RemoveAt(x);
+          //}
+        }
+        e.Request.Body = fphb;
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_LoadTestUserContextExistsInUnitTest
+      </Shortcut>
+      <Title>
+        LoadTestUserContextExistsInUnitTest
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code INTO A UNIT TEST that checks to see if we are running in a load test
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>LoadTestUserContext</ID>
+          <Default>$LoadTestUserContext</Default>
+        </Literal>
+        <Literal>
+          <ID>testContext</ID>
+          <Default>testContext</Default>
+        </Literal>
+        <Literal>
+          <ID>AgentId</ID>
+          <Default>$AgentId</Default>
+        </Literal>
+        <Literal>
+          <ID>AgentCount</ID>
+          <Default>$AgentCount</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+            // Use the following property at the class level
+            // public TestContext $testContext$ { get; set; }
+
+            if ($testContext$.Properties.Contains("$LoadTestUserContext$")) //running as load test
+            {
+                    // add your code here, or use one of the below lines
+                    //int iAgentId = Convert.ToInt32(TestContext.Properties["$AgentId$"]);
+                    //int iAgentCount = Convert.ToInt32(TestContext.Properties["$AgentCount$"]);
+                    
+            }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_LoadTestUserContextExistsInWebtest
+      </Shortcut>
+      <Title>
+        LoadTestUserContextExistsInWebTest
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code INTO A WEB TEST that checks to see if we are running in a load test
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>LoadTestUserContext</ID>
+          <Default>$LoadTestUserContext</Default>
+        </Literal>
+        <Literal>
+          <ID>AgentId</ID>
+          <Default>$AgentId</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+            if (e.WebTest.Context.ContainsKey("$LoadTestUserContext$")) //running as load test
+            {
+                    // add your code here, or use one of the below lines
+                    //int iAgentId = Convert.ToInt32(e.WebTest.Context["$AgentId$"]);
+                    
+            }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_SQLConnectionWithDataReader
+      </Shortcut>
+      <Title>
+        SQLConnectionWithDataReader
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Adds the necessary code to allow a connection to SQL and a subsequent read of data returned from a given query
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>SqlCmd</ID>
+          <Default>"SELECT * FROM dbo.TableName"</Default>
+        </Literal>
+        <Literal>
+          <ID>SqlConn</ID>
+          <Default>"Data Source=Server;Integrated Security=SSPI;Initial Catalog=DataBaseName"</Default>
+        </Literal>
+        <Literal>
+          <ID>sColumn1</ID>
+          <Default>ColumnName1</Default>
+        </Literal>
+        <Literal>
+          <ID>sColumn2</ID>
+          <Default>ColumnName2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+                string sqlCmd = $SqlCmd$;
+                string sqlConn = $SqlConn$;
+
+                using(SqlConnection _conn = new SqlConnection(sqlConn))
+                {
+                  _conn.Open();
+                  SqlCommand _cmd = new SqlCommand(sqlCmd, _conn);
+                  SqlDataReader _rdr = _cmd.ExecuteReader();
+
+                  string $sColumn1$ = "";
+                  string $sColumn2$ = "";
+
+                  while (_rdr.Read())
+                  {
+                      $sColumn1$ = _rdr.GetString(0);
+                      $sColumn2$ = _rdr.GetString(1);
+                  }
+                  _rdr.Close();
+                }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+
+
+

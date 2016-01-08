@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CounterSet Name="TSL ASP.NET" CounterSetType="TSL ASP.Net" LocId="CounterSet_TSL AspDotNet">
+  <CounterCategories>
+    <CounterCategory Name="ASP.NET">
+      <Counters>
+        <Counter Name="Application Restarts" />
+        <Counter Name="Applications Running" />
+        <Counter Name="Request Execution Time" />
+        <Counter Name="Request Wait Time" />
+        <Counter Name="Requests Current" />
+        <Counter Name="Requests Queued" />
+        <Counter Name="State Server Sessions Active" />
+      </Counters>
+    </CounterCategory>
+    <CounterCategory Name="ASP.NET Applications">
+      <Counters>
+        <Counter Name="Anonymous Requests/Sec" />
+        <Counter Name="Errors Total/Sec" />
+        <Counter Name="Errors Unhandled During Execution/Sec" />
+        <Counter Name="Requests Executing" />
+        <Counter Name="Requests In Application Queue" />
+        <Counter Name="Requests/Sec" HigherIsBetter="true"/>
+        <Counter Name="Sessions Active" />
+      </Counters>
+      <Instances>
+        <Instance Name="__Total__" />
+        <Instance Name="w3wp" />
+      </Instances>
+    </CounterCategory>
+    <CounterCategory Name="Web Service">
+      <Counters>
+        <Counter Name="Bytes Received/sec"  HigherIsBetter="true"/>
+        <Counter Name="Bytes Sent/sec"  HigherIsBetter="true"/>
+        <Counter Name="Connection Attempts/sec"  HigherIsBetter="true"/>
+        <Counter Name="Current Connections"  HigherIsBetter="true"/>
+        <Counter Name="Get Requests/sec" HigherIsBetter="true"/>
+        <Counter Name="ISAPI Extension Requests/sec" HigherIsBetter="true"/>
+        <Counter Name="Post Requests/sec" HigherIsBetter="true"/>
+        <Counter Name="Total Method Requests/sec" HigherIsBetter="true"/>
+      </Counters>
+      <Instances>
+        <Instance Name="_Total" />
+      </Instances>
+    </CounterCategory>
+  </CounterCategories>
+  <DefaultCountersForAutomaticGraphs>
+  </DefaultCountersForAutomaticGraphs>
+</CounterSet>

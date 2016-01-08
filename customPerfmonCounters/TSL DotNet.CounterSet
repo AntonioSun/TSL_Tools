@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CounterSet Name="TSL DotNet" CounterSetType="TSL DotNet" LocId="CounterSet_TSL DotNet">
+  <CounterCategories>
+    <CounterCategory Name=".NET CLR Exceptions">
+      <Counters>
+        <Counter Name="# of Exceps Thrown / sec" />
+      </Counters>
+      <Instances>
+        <Instance Name="_Global_" />
+        <Instance Name="w3wp" />
+      </Instances>
+    </CounterCategory>
+    <CounterCategory Name=".NET CLR Interop">
+      <Counters>
+        <Counter Name="# of CCWs" />
+        <Counter Name="# of marshalling" />
+        <Counter Name="# of Stubs" />
+      </Counters>
+      <Instances>
+        <Instance Name="_Global_" />
+        <Instance Name="w3wp" />
+      </Instances>
+    </CounterCategory>
+    <CounterCategory Name=".NET CLR LocksAndThreads">
+      <Counters>
+        <Counter Name="# of current logical Threads" RangeGroup="CLR Threads" />
+        <Counter Name="# of current physical Threads" RangeGroup="CLR Threads" />
+        <Counter Name="Contention Rate / sec" />
+        <Counter Name="Current Queue Length" />
+      </Counters>
+      <Instances>
+        <Instance Name="_Global_" />
+        <Instance Name="w3wp" />
+      </Instances>
+    </CounterCategory>
+    <CounterCategory Name=".NET CLR Memory">
+      <Counters>
+        <Counter Name="# Bytes in all Heaps" RangeGroup="CLR Memory Bytes" />
+        <Counter Name="# GC Handles" />
+        <Counter Name="# Gen 0 Collections" RangeGroup="CLR Memory Collections" />
+        <Counter Name="# Gen 1 Collections" RangeGroup="CLR Memory Collections" />
+        <Counter Name="# Gen 2 Collections" RangeGroup="CLR Memory Collections" />
+        <Counter Name="# Induced GC" RangeGroup="CLR Memory Collections" />
+        <Counter Name="# of Pinned Objects" />
+        <Counter Name="# of Sink Blocks in use" />
+        <Counter Name="# Total committed Bytes" RangeGroup="CLR Memory Bytes" />
+        <Counter Name="# Total reserved Bytes" RangeGroup="CLR Memory Bytes" />
+        <Counter Name="% Time in GC" Range="100">
+          <ThresholdRules>
+            <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+              <RuleParameters>
+                <RuleParameter Name="AlertIfOver" Value="True" />
+                <RuleParameter Name="WarningThreshold" Value="10" />
+                <RuleParameter Name="CriticalThreshold" Value="25" />
+              </RuleParameters>
+            </ThresholdRule>
+          </ThresholdRules>
+        </Counter>
+        <Counter Name="Gen 0 heap size" RangeGroup="CLR Heap Size" />
+        <Counter Name="Gen 1 heap size" RangeGroup="CLR Heap Size" />
+        <Counter Name="Gen 2 heap size" RangeGroup="CLR Heap Size" />
+        <Counter Name="Large Object Heap size" RangeGroup="CLR Heap Size" />
+      </Counters>
+      <Instances>
+        <Instance Name="_Global_" />
+        <Instance Name="w3wp" />
+      </Instances>
+    </CounterCategory>
+  </CounterCategories>
+  <DefaultCountersForAutomaticGraphs>
+    <DefaultCounter CategoryName=".NET CLR Memory" CounterName="# Bytes in all Heaps" InstanceName="w3wp"/>
+    <DefaultCounter CategoryName=".NET CLR Memory" CounterName="% Time in GC" InstanceName="w3wp"/>
+    <DefaultCounter CategoryName=".NET CLR Exceptions" CounterName="# of Exceps Thrown / sec" InstanceName="w3wp"/>
+  </DefaultCountersForAutomaticGraphs>
+</CounterSet>

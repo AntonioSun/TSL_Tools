@@ -1,0 +1,323 @@
+﻿<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <!--
+       TSL_Snip_CopyrightText
+       TSL_Snip_ClassLabels
+       TSL_Snip_MethodLabels
+       TSL_Snip_ProjectComments
+       TSL_Snip_PropertyLabels_bool
+       TSL_Snip_PropertyLabels_int
+       TSL_Snip_PropertyLabels_string
+ -->
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+        TSL_Snip_CustomerUsageComment
+      </Shortcut>
+      <Title>
+        CustomerUsageComment
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert a comment line for telling customers about a code feature or code usage
+      </Description>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Comment</ID>
+          <Default>Insert Comment Here</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[/* ===== Code Usage Comment ================================*/
+      ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_CopyrightText
+      </Shortcut>
+      <Title>
+        CopyrightText
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the standard Microsoft Copyright comments in code
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[//*********************************************************
+// Copyright (c) Microsoft. All rights reserved.
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+      ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_ClassLabels
+      </Shortcut>
+      <Title>
+        ClassLabels
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the comments for a public class
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+        [System.ComponentModel.DisplayName("$ContextName$")]
+        [System.ComponentModel.Description("$Description$")]
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_MethodLabels
+      </Shortcut>
+      <Title>
+        MethodLabels
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code for the name and description of a publicly exposed class
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+        [System.ComponentModel.DisplayName("$ContextName$")]
+        [System.ComponentModel.Description("$Description$")]
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_ProjectComments
+      </Shortcut>
+      <Title>
+        PropertyLabels
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert a file comment section outlining the file contents
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>filename</ID>
+            <Default>"somefile.cs"</Default>
+          </Literal>
+          <Literal>
+            <ID>version</ID>
+            <Default>"Version 1.0"</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+//===================================================================================
+// $filename$
+// $version$
+// Produced by the Microsoft Testing Services and Labs team. For more information
+// please visit http://TSL
+//
+// add comments here
+//===================================================================================
+
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_PropertyLabels_bool
+      </Shortcut>
+      <Title>
+        PropertyLabels_bool
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code for a publicly exposed property of type boolean in a class
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+          <Literal>
+            <ID>Value</ID>
+            <Default>true</Default>
+          </Literal>
+          <Literal>
+              <ID>Name</ID>
+            <Default>bBoolName</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+        [System.ComponentModel.DisplayName("$ContextName$")]
+        [System.ComponentModel.Description("$Description$")]
+        [System.ComponentModel.DefaultValue($Value$)]
+        public bool $Name$ { get; set; }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_PropertyLabels_int
+      </Shortcut>
+      <Title>
+        PropertyLabels_int
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code for a publicly exposed property of type int in a class
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+          <Literal>
+            <ID>Value</ID>
+            <Default>0</Default>
+          </Literal>
+          <Literal>
+              <ID>Name</ID>
+            <Default>iIntName</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+        [System.ComponentModel.DisplayName("$ContextName$")]
+        [System.ComponentModel.Description("$Description$")]
+        [System.ComponentModel.DefaultValue($Value$)]
+        public int $Name$ { get; set; }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>
+       TSL_Snip_PropertyLabels_string
+      </Shortcut>
+      <Title>
+        PropertyLabels_String
+      </Title>
+      <Author>
+        Geoff Gray
+      </Author>
+      <Description>
+        Used to insert the code for a publicly exposed property of type string in a class
+      </Description>
+    </Header>
+      <Snippet>
+        <Declarations>
+          <Literal>
+            <ID>ContextName</ID>
+            <Default>ContextName</Default>
+          </Literal>
+          <Literal>
+            <ID>Description</ID>
+            <Default>ContextDescription</Default>
+          </Literal>
+          <Literal>
+            <ID>Value</ID>
+            <Default>DefaultValue</Default>
+          </Literal>
+          <Literal>
+              <ID>Name</ID>
+            <Default>sStringName</Default>
+          </Literal>
+        </Declarations>
+        <Code Language="CSharp">
+        <![CDATA[
+        [System.ComponentModel.DisplayName("$ContextName$")]
+        [System.ComponentModel.Description("$Description$")]
+        [System.ComponentModel.DefaultValue("$Value$")]
+        public string $Name$ { get; set; }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+</CodeSnippets>
+
+
