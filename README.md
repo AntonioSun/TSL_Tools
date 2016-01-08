@@ -22,25 +22,25 @@ These code snippets allow you to easily insert code snippets for things like pub
 
 *   **TSL_CodePieces.snippet**
 
-*   TSL_Snip_ContextAddOrUpdate
-*   TSL_Snip_HandleContextParams
-*   TSL_Snip_FailTheIteration
-*   TSL_Snip_ForEach_HTMLTagInnerText
-*   TSL_Snip_ForEach_StringSplit
-*   TSL_Snip_FormPostHttpBody
-*   TSL_Snip_LoadTestUserContextExistsInUnitTest
-*   TSL_Snip_LoadTestUserContextExistsInWebtest
-*   SQLConnectionWithDataReader
+  *   TSL_Snip_ContextAddOrUpdate
+  *   TSL_Snip_HandleContextParams
+  *   TSL_Snip_FailTheIteration
+  *   TSL_Snip_ForEach_HTMLTagInnerText
+  *   TSL_Snip_ForEach_StringSplit
+  *   TSL_Snip_FormPostHttpBody
+  *   TSL_Snip_LoadTestUserContextExistsInUnitTest
+  *   TSL_Snip_LoadTestUserContextExistsInWebtest
+  *   SQLConnectionWithDataReader
 
 *   **TSL_Declarations.snippet**
 
-*   TSL_Snip_CopyrightText
-*   TSL_Snip_ClassLabels
-*   TSL_Snip_MethodLabels
-*   TSL_Snip_ProjectComments
-*   TSL_Snip_PropertyLabels_bool
-*   TSL_Snip_PropertyLabels_int
-*   TSL_Snip_PropertyLabels_string
+  *   TSL_Snip_CopyrightText
+  *   TSL_Snip_ClassLabels
+  *   TSL_Snip_MethodLabels
+  *   TSL_Snip_ProjectComments
+  *   TSL_Snip_PropertyLabels_bool
+  *   TSL_Snip_PropertyLabels_int
+  *   TSL_Snip_PropertyLabels_string
 
 ### Visual Studio custom Perfmon Counter sets
 
